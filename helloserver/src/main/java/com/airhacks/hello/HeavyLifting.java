@@ -7,7 +7,6 @@ import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.ejb.AsyncResult;
 import javax.ejb.Asynchronous;
-import javax.ejb.Schedule;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 
@@ -34,7 +33,7 @@ public class HeavyLifting {
         return new AsyncResult<>("42");
     }
 
-    @Schedule(hour = "*", minute = "*", second = "*/2")
+    //@Schedule(hour = "*", minute = "*", second = "*/2")
     public void repetetiveWork() {
         System.out.println("--- executing " + LocalTime.now());
     }
