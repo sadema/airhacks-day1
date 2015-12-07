@@ -10,6 +10,7 @@ import javax.ejb.Startup;
 import javax.ejb.Timeout;
 import javax.ejb.Timer;
 import javax.ejb.TimerService;
+import javax.inject.Inject;
 
 /**
  *
@@ -23,6 +24,9 @@ public class ConfigurableTimer {
     TimerService service;
     private Timer timer;
 
+    @Inject
+    String message;
+
     @PostConstruct
     public void init() {
         ScheduleExpression expression = new ScheduleExpression();
@@ -33,7 +37,7 @@ public class ConfigurableTimer {
 
     @Timeout
     public void whatever() {
-        System.out.println("--- executed at: " + LocalTime.now());
+        System.out.println("--- executed at: " + LocalTime.now() + " " + message);
     }
 
     @PreDestroy
