@@ -1,6 +1,8 @@
 package com.airhacks;
 
 import java.net.URI;
+import java.util.List;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.OPTIONS;
@@ -15,6 +17,7 @@ import javax.ws.rs.core.UriInfo;
  *
  * @author airhacks.com
  */
+@Stateless
 @Path("flights")
 public class FlightsResource {
 
@@ -25,6 +28,11 @@ public class FlightsResource {
     @Path("{nbr}")
     public Flight flight(@PathParam("nbr") long nbr) {
         return this.scheduler.find(nbr);
+    }
+
+    @GET
+    public List<Flight> method() {
+        return this.scheduler.all();
     }
 
     @OPTIONS
