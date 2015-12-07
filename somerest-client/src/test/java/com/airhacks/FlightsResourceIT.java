@@ -30,17 +30,20 @@ public class FlightsResourceIT {
 
     @Test
     public void flight() {
-        JsonObject json = this.tut.path("lh-4242").
-                request(MediaType.APPLICATION_JSON).
-                get(JsonObject.class);
-        System.out.println("json = " + json);
-
-        JsonObject input = Json.createObjectBuilder().add("myflight", "salt lake city").build();
+//{"id":0,"name":"LH-42","capacity":2}
+        JsonObject input = Json.createObjectBuilder().add("name", "salt lake city").
+                add("capacity", 2).build();
 
         Response response = this.tut.request().post(Entity.json(input));
         assertThat(response.getStatus(), is(201));
         String headerString = response.getHeaderString("Location");
         System.out.println("headerString = " + headerString);
+
+        JsonObject createdFlight = this.client.target(headerString).
+                request(MediaType.APPLICATION_JSON).
+                get(JsonObject.class);
+        System.out.println("createdFlight = " + createdFlight);
+
     }
 
 }
