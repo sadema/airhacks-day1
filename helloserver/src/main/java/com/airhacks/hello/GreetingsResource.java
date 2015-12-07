@@ -1,6 +1,8 @@
 package com.airhacks.hello;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
+import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -23,6 +25,9 @@ public class GreetingsResource {
     @EcoMode(EcoMode.Level.SMART)
     Engine engine;
 
+    @Resource
+    SessionContext ctx;
+
     @PostConstruct
     public void initialize() {
         System.out.println("-- initialized");
@@ -33,6 +38,7 @@ public class GreetingsResource {
         this.engine.start();
         System.out.println("-- " + bl.getClass());
         response.resume("async hello appserver " + System.currentTimeMillis() + " " + bl.getMessage());
+        ctx.setRollbackOnly();
     }
 
 }
