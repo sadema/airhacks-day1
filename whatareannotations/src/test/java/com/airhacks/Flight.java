@@ -7,4 +7,8 @@ package com.airhacks;
 @Category("business")
 public class Flight {
 
+    @FlightNumber
+    String code;
+
+    String description;
 }
