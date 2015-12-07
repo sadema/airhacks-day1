@@ -1,13 +1,13 @@
 package com.airhacks.hello;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
+import javax.interceptor.Interceptors;
 
 /**
  *
  * @author airhacks.com
  */
-@RequestScoped
+@Interceptors(PerformanceMonitor.class)
 public class EnterpriseGreetingResource {
 
     @PostConstruct
