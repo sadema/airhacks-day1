@@ -1,7 +1,7 @@
 package com.airhacks.hello;
 
 import javax.annotation.PostConstruct;
-import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -12,7 +12,7 @@ import javax.ws.rs.container.Suspended;
  *
  * @author airhacks.com
  */
-@Stateless
+@ApplicationScoped
 @Path("greetings")
 public class GreetingsResource {
 
