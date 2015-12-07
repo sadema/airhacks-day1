@@ -24,7 +24,7 @@ public class Flight {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     @Column(name = "FIRST_NAME")
     private String name;
