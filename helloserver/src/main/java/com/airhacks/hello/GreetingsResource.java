@@ -19,6 +19,9 @@ public class GreetingsResource {
     @Inject
     EnterpriseGreetingResource bl;
 
+    @Inject
+    Engine engine;
+
     @PostConstruct
     public void initialize() {
         System.out.println("-- initialized");
@@ -26,6 +29,8 @@ public class GreetingsResource {
 
     @GET
     public void whatever(@Suspended AsyncResponse response) {
+        this.engine.start();
+        System.out.println("-- " + bl.getClass());
         response.resume("async hello appserver " + System.currentTimeMillis() + " " + bl.getMessage());
     }
 
