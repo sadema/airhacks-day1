@@ -8,7 +8,16 @@ package com.airhacks;
 public class Flight {
 
     @FlightNumber
-    String code;
+    private String code;
 
-    String description;
+    private String description;
+
+    @AirJect
+    Airplane airplane;
+
+    @Override
+    public String toString() {
+        return "Flight{" + "code=" + code + ", description=" + description + ", airplane=" + airplane + '}';
+    }
+
 }
