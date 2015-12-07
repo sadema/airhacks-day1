@@ -19,7 +19,7 @@ public class Index {
     public Object doIt() {
         first.setContent("duke");
         second.check();
-        return null;
+        return "confirmation";
     }
 
 }
