@@ -20,6 +20,7 @@ public class GreetingsResource {
     EnterpriseGreetingResource bl;
 
     @Inject
+    @EcoMode(EcoMode.Level.SMART)
     Engine engine;
 
     @PostConstruct
