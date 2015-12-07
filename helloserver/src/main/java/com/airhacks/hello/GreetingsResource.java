@@ -2,6 +2,8 @@ package com.airhacks.hello;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.container.AsyncResponse;
+import javax.ws.rs.container.Suspended;
 
 /**
  *
@@ -11,8 +13,8 @@ import javax.ws.rs.Path;
 public class GreetingsResource {
 
     @GET
-    public String whatever() {
-        return "hello appserver " + System.currentTimeMillis();
+    public void whatever(@Suspended AsyncResponse response) {
+        response.resume("async hello appserver " + System.currentTimeMillis());
     }
 
 }
