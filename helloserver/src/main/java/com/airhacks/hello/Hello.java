@@ -10,7 +10,7 @@ import javax.enterprise.inject.Model;
 public class Hello {
 
     public String getMessage() {
-        return "for JSP " + System.currentTimeMillis();
+        return "for JSP or JSF " + System.currentTimeMillis();
 
     }
 
