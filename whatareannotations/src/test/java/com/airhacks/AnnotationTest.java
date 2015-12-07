@@ -42,6 +42,7 @@ public class AnnotationTest {
             System.out.println("fieldType = " + fieldType);
             Object airplanceInstance = fieldType.newInstance();
             System.out.println("airplanceInstance = " + airplanceInstance);
+            annotatedField.setAccessible(true);
             annotatedField.set(flightInstance, airplanceInstance);
             System.out.println("flightInstance = " + flightInstance);
         }

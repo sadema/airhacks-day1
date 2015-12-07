@@ -13,7 +13,7 @@ public class Flight {
     private String description;
 
     @AirJect
-    Airplane airplane;
+    private Airplane airplane;
 
     @Override
     public String toString() {
